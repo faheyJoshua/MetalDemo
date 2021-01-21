@@ -1,0 +1,204 @@
+[
+    {
+        "id": "S-1",
+        "name": "Color Filters",
+        "items": [
+            {
+                "id": "C-F-1",
+                "name": "Brightness",
+                "kernel": "JFBrightness",
+                "description": "Changes the brightness of the image",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Brightness",
+                        "min": -1,
+                        "max": 1,
+                        "start": 0
+                    }
+                ],
+            },
+            {
+                "id": "C-F-2",
+                "name": "Contrast",
+                "kernel": "JFContrast",
+                "description": "Changes the contrast in the image",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Contrast",
+                        "min": -1,
+                        "max": 1,
+                        "start": 0
+                    }
+                ],
+            },
+            {
+                "id": "C-F-3",
+                "name": "Gamma",
+                "kernel": "JFGamma",
+                "description": "Changes the gamma correction in the image",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Gamma",
+                        "min": 0,
+                        "max": 8,
+                        "start": 1
+                    }
+                ],
+            },
+            {
+                "id": "C-F-4",
+                "name": "Greyscale",
+                "kernel": "JFGreyscale",
+                "description": "Makes the image greyscale",
+                "controls": [],
+            },
+            {
+                "id": "C-F-5",
+                "name": "Inversion",
+                "kernel": "JFInversion",
+                "description": "Inverts the colors in the image",
+                "controls": [],
+            },
+            {
+                "id": "C-F-6",
+                "name": "Solarize",
+                "kernel": "JFSolarize",
+                "description": "Inverts the colors above the threshold",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Threshold",
+                        "min": 0,
+                        "max": 1.05,
+                        "start": 1.05
+                    }
+                ],
+            },
+            {
+                "id": "C-F-7",
+                "name": "Posterize",
+                "kernel": "JFPosterize",
+                "description": "Reduces the number of colors in an image",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Intervals",
+                        "min": 1,
+                        "max": 16,
+                        "start": 16
+                    }
+                ],
+            },
+            {
+                "id": "C-F-8",
+                "name": "Chroma Key",
+                "kernel": "JFChromaKey",
+                "description": "Keys out a color and all colors with a distance of it",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Red",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0
+                    },
+                    {
+                        "order": 2,
+                        "type": "float",
+                        "label": "Green",
+                        "min": 0,
+                        "max": 1,
+                        "start": 1
+                    },
+                    {
+                        "order": 3,
+                        "type": "float",
+                        "label": "Blue",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0
+                    },
+                    {
+                        "order": 4,
+                        "type": "float",
+                        "label": "Distance Threshold",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0.4
+                    },
+                    {
+                        "order": 5,
+                        "type": "float",
+                        "label": "Transparency Smoothness",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0.1
+                    }
+                ],
+            }
+        ],
+    },
+    {
+        "id": "S-2",
+        "name": "Blend Filters",
+        "items": [
+            {
+                "id": "B-F-1",
+                "name": "Overlay - Normal",
+                "kernel": "JFNormalOverlayBlend",
+                "description": "Overlays image on top of source using normal blend",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "image",
+                        "label": "Overlay"
+                    }
+                ],
+            },
+            {
+                "id": "B-F-2",
+                "name": "Background - Normal",
+                "kernel": "JFNormalBackgroundBlend",
+                "description": "Overlays source on top of image using normal blend",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "image",
+                        "label": "Background"
+                    }
+                ],
+            }
+        ],
+    },
+    {
+        "id": "S-3",
+        "name": "Blur Filters",
+        "items": [
+            {
+                "id": "BL-F-1",
+                "name": "Glass Filter",
+                "kernel": "JFGlassFilter",
+                "description": "Creates a blur to imitate looking through glass",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Distance",
+                        "min": 1,
+                        "max": 10,
+                        "start": 1
+                    }
+                ],
+            }
+        ],
+    }
+]

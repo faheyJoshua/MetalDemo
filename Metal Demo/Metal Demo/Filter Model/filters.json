@@ -1,0 +1,296 @@
+[
+    {
+        "id": "S-1",
+        "name": "Color Filters",
+        "items": [
+            {
+                "id": "C-F-1",
+                "name": "Brightness",
+                "kernel": "JFBrightness",
+                "description": "Changes the brightness of the image",
+                "tip":"Value from this slider is added to each of the rgb values of a pixel",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Brightness",
+                        "min": -1,
+                        "max": 1,
+                        "start": 0
+                    }
+                ],
+            },
+            {
+                "id": "C-F-2",
+                "name": "Contrast",
+                "kernel": "JFContrast",
+                "description": "Changes the contrast in the image",
+                "tip":"Value from this slider is used in a calculation of: 0.5 + (1 + x / 1 - x)*(color - 0.5) on each rgb value in a pixel",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Contrast",
+                        "min": -1,
+                        "max": 1,
+                        "start": 0
+                    }
+                ],
+            },
+            {
+                "id": "C-F-3",
+                "name": "Gamma",
+                "kernel": "JFGamma",
+                "description": "Changes the gamma correction in the image",
+                "tip":"Value from this slider is used in a calculation of color^(1/g) for each rgb of each pixel",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Gamma",
+                        "min": 0,
+                        "max": 8,
+                        "start": 1
+                    }
+                ],
+            },
+            {
+                "id": "C-F-4",
+                "name": "Greyscale",
+                "kernel": "JFGreyscale",
+                "description": "Makes the image greyscale",
+                "tip":"The luminance of each pixel is used for all values of the rgb",
+                "controls": [],
+            },
+            {
+                "id": "C-F-5",
+                "name": "Inversion",
+                "kernel": "JFInversion",
+                "description": "Inverts the colors in the image",
+                "tip":"Each rgb value in each pixel is replaced by 1 - color",
+                "controls": [],
+            },
+            {
+                "id": "C-F-6",
+                "name": "Solarize",
+                "kernel": "JFSolarize",
+                "description": "Inverts the colors above the threshold",
+                "tip":"Each rgb in a pixel if below the value of this slider is inverted (e.g. if the r is below the threshold it is replaced with 1 - r)",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Threshold",
+                        "min": 0,
+                        "max": 1.05,
+                        "start": 1.05
+                    }
+                ],
+            },
+            {
+                "id": "C-F-7",
+                "name": "Posterize",
+                "kernel": "JFPosterize",
+                "description": "Reduces the number of colors in an image",
+                "tip":"Each rgb is put into the calculation (1/slider) * floor(slider * color)",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Intervals",
+                        "min": 1,
+                        "max": 16,
+                        "start": 16
+                    }
+                ],
+            },
+            {
+                "id": "C-F-8",
+                "name": "Chroma Key",
+                "kernel": "JFChromaKey",
+                "description": "Keys out a color and all colors with a distance of it",
+                "tip":"Value from the rgb slider are used to make a color to remove. The distance theshold slider is used for comparison of distance between the pixel's rgb against the color to remove, if the threshold value is greater than the distance then the pixel is made transparent. If the pixel's distance from the color to remove is greater than the sum of the transparency smoothness and the threshold, then the pixel is kept opaque. If the color distance is in between the threshold and the threshold + smoothness then a blending calculation is made on the alpha of the pixel",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Red",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0
+                    },
+                    {
+                        "order": 2,
+                        "type": "float",
+                        "label": "Green",
+                        "min": 0,
+                        "max": 1,
+                        "start": 1
+                    },
+                    {
+                        "order": 3,
+                        "type": "float",
+                        "label": "Blue",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0
+                    },
+                    {
+                        "order": 4,
+                        "type": "float",
+                        "label": "Distance Threshold",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0.4
+                    },
+                    {
+                        "order": 5,
+                        "type": "float",
+                        "label": "Transparency Smoothness",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0.1
+                    }
+                ],
+            }
+        ],
+    },
+    {
+        "id": "S-2",
+        "name": "Blend Filters",
+        "items": [
+            {
+                "id": "B-F-1",
+                "name": "Overlay - Normal",
+                "kernel": "JFNormalOverlayBlend",
+                "description": "Overlays image on top of source using normal blend",
+                "tip":"The image in the well is placed on top of the source fed into this filter",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "image",
+                        "label": "Overlay"
+                    }
+                ],
+            },
+            {
+                "id": "B-F-2",
+                "name": "Background - Normal",
+                "kernel": "JFNormalBackgroundBlend",
+                "description": "Overlays source on top of image using normal blend",
+                "tip":"The image in the well is placed behind the source fed into this filter",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "image",
+                        "label": "Background"
+                    }
+                ],
+            }
+        ],
+    },
+    {
+        "id": "S-3",
+        "name": "Blur Filters",
+        "items": [
+            {
+                "id": "BL-F-1",
+                "name": "Glass Filter",
+                "kernel": "JFGlassFilter",
+                "description": "Creates a blur to imitate looking through glass",
+                "tip":"Each pixel is replaced by a pixel within the silder value's distance (in pixels)",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Distance",
+                        "min": 1,
+                        "max": 10,
+                        "start": 1
+                    }
+                ],
+            },
+            {
+                "id": "BL-F-2",
+                "name": "Guassian Blur Filter",
+                "kernel": "JFGuassianBlurFilter",
+                "description": "Creates a blur using a Gaussian bell function",
+                "tip":"Each pixel is blurred using a gaussian calculation and the surrounding pixel values",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Radius",
+                        "min": 1,
+                        "max": 25,
+                        "start": 1
+                    }
+                ],
+            }
+        ],
+    },
+    {
+        "id": "S-4",
+        "name": "Edge Filters",
+        "items": [
+            {
+                "id": "E-F-1",
+                "name": "Sobel Threshold Edge Filter",
+                "kernel": "JFSobelThresholdFilter",
+                "description": "Detects edges adding lines",
+                "tip":"An edge is calculated based on surrounding r values, if the intensity multiplied by strength is above the threshold than the returning pixel is black, otherwise it's white",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Threshold",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0.8
+                    },
+                    {
+                        "order": 2,
+                        "type": "float",
+                        "label": "Strength",
+                        "min": 0,
+                        "max": 10,
+                        "start": 1
+                    }
+                ],
+            },
+            {
+                "id": "E-F-2",
+                "name": "Comic Book Filter",
+                "kernel": "JFComicBookFilter",
+                "description": "Creates a comic book effect",
+                "tip":"An edge is calculated based on surrounding r values, if the intensity multiplied by strength is above the threshold than the returning pixel is black, otherwise it's fed into an internal posterize-like filter(see posterize)",
+                "controls": [
+                    {
+                        "order": 1,
+                        "type": "float",
+                        "label": "Threshold",
+                        "min": 0,
+                        "max": 1,
+                        "start": 0.8
+                    },
+                    {
+                        "order": 2,
+                        "type": "float",
+                        "label": "Strength",
+                        "min": 0,
+                        "max": 10,
+                        "start": 1
+                    },
+                    {
+                        "order": 3,
+                        "type": "float",
+                        "label": "Intervals",
+                        "min": 1,
+                        "max": 16,
+                        "start": 16
+                    }
+                ],
+            }
+        ],
+    }
+]
