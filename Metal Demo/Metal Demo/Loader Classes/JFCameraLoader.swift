@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import CoreImage
 
 
 class JFCameraLoader: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {

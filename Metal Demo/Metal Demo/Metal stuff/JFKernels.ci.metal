@@ -22,13 +22,14 @@ extern "C" {
     /*COLOR FILTERS*/
     
     float4 JFBrightness(coreimage::sample_t s, float brightness){
-        float3 color = clamp(s.rgb + float3(brightness), 1.0, 0.0);
+        float3 color = s.rgb + float3(brightness);
         
         return float4(color, s.a);
     }
     
     float4 JFGamma(coreimage::sample_t s, float gamma){
-        float g = 1 / clamp(gamma, 7.99, 0.01);
+        float denom = min(max(gamma, 0.01), 7.99);
+        float g = 1 / denom;
         float3 color = pow(s.rgb, g);
         
         return float4(color, s.a);
